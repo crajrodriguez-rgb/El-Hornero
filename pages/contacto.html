@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+    <title>El Hornero</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../css/styles.css">
+  </head>
+
+  <body>
+    
+    <header class="header">
+      <img src="../assets/img/elhornero.jpg" alt="logo" class="logo">
+      <div class="titles">
+        <h1>El Hornero</h1>
+        <h2>Indumentaria de Trabajo</h2>
+      </div>
+      <nav class="headernav">
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="main">
+      <H1>CONTACTANOS</H1>
+      <form action="/sumit" method="post">
+          <label for="nombre">Nombre:</label>
+          <input type="text" name="nombre" id="nombre">
+          
+          <label for="apellido">Apellido</label>
+          <input type="text" name="apellido" id="apellido">
+
+          <label for="email">email</label>
+          <input type="email" name="email" id="email">
+
+          <label for="telefono">Telefono</label>
+          <input type="tel" name="telefono" id="telefono">
+
+          <label for="ciudad">Ciudad</label>
+          <input type="text" name="ciudad" id="ciudad">
+
+          <label for="provincia">Provincia</label>
+          <select name="provincia" id="provincia">
+            <option value="">Santa Fe</option>
+            <option value="">Cordoba</option>
+            <option value="">Buenos Aires</option>
+            <option value="">Entre Rios</option>
+            <option value="">Otra</option>
+          </select>
+            
+          <label for="mensaje">Mensaje</label>
+          <textarea name="mensaje" id="mensaje"></textarea>
+          
+          <p>¿Es usted el encargado de compras?</p>
+          <div class="radio-group">
+            <input type="radio" id="si" name="encargado" value="si">
+            <label for="si">Sí</label>
+          </div>
+          <div class="radio-group">
+            <input type="radio" id="no" name="encargado" value="no">
+            <label for="no">No</label>
+          </div>
+
+          <div class="checkbox-group">
+            <input type="checkbox" id="terminos" name="terminos">
+            <label for="terminos">Acepto Términos y Condiciones</label>
+          </div>
+          <input type="submit" value="Enviar">
+      </form>
+    </main>
+
+    <footer class="footer">
+      <p>Venado Tuerto - Santa Fe - Argentina</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  
+  </body>
+</html>
