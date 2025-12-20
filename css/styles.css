@@ -303,7 +303,7 @@ form .form-error {
     border-top: 1px solid rgba(0,0,0,0.15);               /* Línea superior ligera */
 }
 
-/*-------------------------------
+/*-----------------------------
   MEDIA QUERIES GENERALES
 -------------------------------*/
 @media (max-width: 768px) {
