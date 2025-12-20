@@ -15,23 +15,48 @@
   </head>
 
   <body>
+    
     <header class="header">
-      <img src="./assets/img/elhornero.jpg" alt="Logo El Hornero" class="logo">
-      <div class="titles">
-        <h1>El Hornero</h1>
-        <h2>Indumentaria de Trabajo</h2>
-      </div>
-      <nav class="headernav" aria-label="Menú principal">
-        <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="pages/nosotros.html">Nosotros</a></li>
-          <li><a href="pages/productos.html">Productos</a></li>
-          <li><a href="pages/servicios.html">Servicios</a></li>
-          <li><a href="pages/contacto.html">Contacto</a></li>
-        </ul>
+      <nav class="navbar navbar-expand-md navbar-light">
+        <div class="container-fluid">
+          <div class="row w-100 align-items-center">
+            <!-- LOGO -->
+            <div class="col-auto">
+              <a class="navbar-brand" href="index.html">
+                <img src="./assets/img/elhornero.jpg" alt="Logo El Hornero" width="50">
+              </a>
+            </div>
+            <!-- TITULOS (CENTRO REAL) -->
+            <div class="col text-center">
+              <div class="titles">
+                <h1>El Hornero</h1>
+                <h2>Indumentaria de Trabajo</h2>
+              </div>
+            </div>
+            <!-- NAV -->
+            <div class="col-auto">
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarMenu">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse justify-content-end" id="navbarMenu">
+                <ul class="navbar-nav mb-2 mb-md-0">
+                  <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                  <li class="nav-item"><a class="nav-link" href="pages/nosotros.html">Nosotros</a></li>
+                  <li class="nav-item"><a class="nav-link" href="pages/productos.html">Productos</a></li>
+                  <li class="nav-item"><a class="nav-link" href="pages/servicios.html">Servicios</a></li>
+                  <li class="nav-item"><a class="nav-link" href="pages/contacto.html">Contacto</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </nav>
     </header>
-
+    
     <main class="main">
       <p>
         Indumentaria para la industria, el campo y las oficinas<br>
