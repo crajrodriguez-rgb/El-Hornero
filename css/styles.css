@@ -2,9 +2,10 @@
   VARIABLES GLOBALES
 -------------------------------*/
 :root {
-    --color-bg: #F5F5DC;      /* Fondo general beige claro */
-    --color-text: brown;      /* Color marrón para textos importantes */
-    --padding-base: 1rem;     /* Padding base de 16px aprox */
+    --color-bg: #F5F5DC;
+    --color-text: brown;
+    --color-parrafo: #6b4a2b;
+    --padding-base: 1rem;
 }
 
 /*-------------------------------
@@ -16,300 +17,350 @@
     box-sizing: border-box;
 }
 
-/*-------------------------------
-  HTML Y BODY
--------------------------------*/
 html {
     font-size: 16px;
     height: 100%;
 }
 
 body {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    font-size: 1rem;
-    line-height: 1.5;
+    font-family: 'Roboto', sans-serif;
     background-color: var(--color-bg);
-    min-height: 100vh;
+    line-height: 1.5;
 }
 
 /*-------------------------------
-  HEADER - NAVBAR BOOSTRAP
+  HEADER / NAVBAR
 -------------------------------*/
-.titles {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Roboto', sans-serif;
-    color: var(--color-text);
-}
-
-.titles h1,
-.titles h2 {
-    margin: 0;
-    line-height: 1.1;
-}
-
-/* NAVBAR */
 .navbar {
     background-color: var(--color-bg);
     padding: var(--padding-base) 2rem;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-/* LOGO */
 .navbar-brand {
     display: flex;
     align-items: center;
 }
 
-/* LINKS */
+.titles {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--color-text);
+}
+
+.titles h1, .titles h2 {
+    margin: 0;
+    line-height: 1.1;
+}
+
 .navbar-nav .nav-link {
     color: var(--color-text);
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 .navbar-nav .nav-link:hover {
     color: darkred;
 }
 
-/* Ajustes mobile */
-@media (max-width: 576px) {
-    .navbar-brand .brand-text span {
-        font-size: 1.2rem;
-    }
-    .navbar-brand .brand-text small {
-        font-size: 0.9rem;
-    }
-    .navbar-nav .nav-link {
-        padding: 0.25rem 0.5rem;
-    }
-}
-
 /*-------------------------------
   MAIN
 -------------------------------*/
 .main {
-    flex: 1;                        /* Ocupa todo el espacio disponible */
-    display: flex;                  
-    flex-direction: column;         /* Elementos en columna */
-    justify-content: center;        /* Centra verticalmente */
-    align-items: center;            /* Centra horizontalmente */
-    gap: 3rem;                      /* Separación entre elementos */
-    padding: 40px 20px;             /* Relleno interno: arriba/abajo y lados */
-    box-sizing: border-box;         /* Padding no aumenta tamaño total */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    padding: 2.5rem 1.5rem;
 }
 
-.main p {
-    font-size: 1.5rem;              /* Texto más grande */
-    text-align: center;             /* Centrado horizontal del texto */
-    max-width: 700px;               /* Limita ancho para lectura cómoda */
+/* HERO NOSOTROS */
+.main-nosotros {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
 }
 
-/* MAPA RESPONSIVE */
-.map {
-    width: 100%;                     /* Ocupa todo el ancho del contenedor */
-    max-width: 600px;                /* Limita ancho máximo */
-    aspect-ratio: 16/9;              /* Mantiene proporción 16:9 */
-    border: 0;                       /* Sin borde */
+.main-nosotros h1 {
+    font-size: 3rem;
+    opacity: 0;
+    animation: fadeInUp 1s forwards;
 }
 
-
-/* Carrusel personalizado */
-.my-carousel {
-    width: 100%;        /* ocupa todo lo disponible */
-    max-width: 500px;   /* o el ancho que quieras */
-    margin: 0 auto;     /* centra el carrusel */
+.main-nosotros p {
+    font-size: 1.3rem;
+    color: var(--color-parrafo);
+    line-height: 1.7;
+    max-width: 800px;
+    opacity: 0;
+    animation: fadeInUp 1s 0.5s forwards;
 }
 
-.my-carousel .carousel-item img {
+.main-nosotros img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    opacity: 0;
+    transition: transform 0.5s ease;
+    animation: fadeInUp 1s 1s forwards;
+}
+
+.main-nosotros img:hover {
+    transform: scale(1.05);
+}
+
+/*-------------------------------
+  KEYFRAMES ANIMACIÓN
+-------------------------------*/
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/*-------------------------------
+  HERO GENERAL (TEXTO + IMAGEN)
+-------------------------------*/
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 2.5rem;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.hero-text, .hero-img {
+    flex: 1 1 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-text p {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--color-parrafo);
+    line-height: 1.4;
+    max-width: 90%;
+}
+
+.hero-img img {
     max-width: 100%;
-    max-height: 100%;
+    height: auto;
     object-fit: contain;
 }
 
-/* Suavizar transición entre slides */
+/*-------------------------------
+  CARDS PRODUCTOS / SERVICIOS
+-------------------------------*/
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.card {
+    max-width: 200px;
+    padding: 0.8rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 0.8rem;
+    object-fit: cover;
+}
+
+.card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+}
+
+.card p {
+    font-size: 0.9rem;
+}
+
+.cards-productos .card {
+    max-width: 260px;
+    padding: 1.2rem;
+}
+
+.cards-productos .card img {
+    height: 200px;
+}
+
+/*-------------------------------
+  CAROUSEL
+-------------------------------*/
+.my-carousel {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
 .my-carousel .carousel-item {
     transition: transform 1.5s ease-in-out;
 }
 
-/* Desktop */
-@media (min-width: 992px) {
-    .my-carousel .carousel-item {
-        height: 420px;
-    }
-}
-
-/* Tablet */
-@media (max-width: 991px) {
-    .my-carousel .carousel-item {
-        height: 300px;
-    }
-}
-
-/* Mobile */
-@media (max-width: 576px) {
-    .my-carousel .carousel-item {
-        height: 220px;
-    }
-}
-
-
-
-/*-------------------------------
-  FORMULARIO (MEJORADO)
--------------------------------*/
-form {
-    display: grid;                         /* Usamos grid para mayor control de filas y columnas */
-    grid-template-columns: 1fr;            /* Por defecto, 1 columna (adaptable a móvil) */
-    gap: 1rem;                             /* Espacio entre filas y columnas del formulario */
-    padding: 2rem;                          /* Relleno interno del formulario */
-    background-color: #f9f9f9;             /* Color de fondo claro */
-    border-radius: 8px;                     /* Bordes redondeados del formulario */
-    max-width: 600px;                       /* Ancho máximo para que no se estire demasiado en pantallas grandes */
-    margin: 0 auto;                         /* Centra el formulario horizontalmente */
-}
-
-/* Campos input, select, textarea */
-form input[type="text"],
-form input[type="email"],
-form input[type="password"],
-form select,
-form textarea {
-    display: block;                         /* Cada campo ocupa toda la línea */
-    width: 100%;                            /* Ancho completo del contenedor padre */
-    padding: 0.5rem 0.75rem;                /* Relleno interno de los campos */
-    font-size: 1rem;                        /* Tamaño de letra base */
-    border: 1px solid #ccc;                 /* Borde gris claro */
-    border-radius: 4px;                     /* Bordes ligeramente redondeados */
-    box-sizing: border-box;                 /* Incluye padding y border en el ancho total */
-}
-
-/* Labels */
-form label {
-    display: block;                         /* Cada label ocupa su propia línea */
-    font-weight: 500;                        /* Grosor medio del texto */
-    margin-bottom: 0.3rem;                   /* Espacio debajo del label */
-}
-
-/* Checkbox y radio inline */
-.radio-group,
-.checkbox-group {
-    display: flex;                           /* Distribución horizontal */
-    align-items: center;                     /* Centra verticalmente los elementos */
-    gap: 0.5rem;                             /* Espacio entre input y su label */
-}
-
-.radio-group input,
-.checkbox-group input {
-    width: auto;                             /* Tamaño natural del input */
-    margin: 0;                               /* Sin margen extra */
-}
-
-/* Botón */
-form button {
-    padding: 0.75rem 1.5rem;                /* Relleno interno del botón */
-    font-size: 1rem;                         /* Tamaño de texto del botón */
-    background-color: #4CAF50;               /* Color de fondo verde */
-    color: white;                             /* Color del texto */
-    border: none;                             /* Sin borde */
-    border-radius: 5px;                       /* Bordes redondeados */
-    cursor: pointer;                          /* Cambia el cursor al pasar sobre el botón */
-    transition: background-color 0.3s ease;   /* Suaviza la transición del color al hacer hover */
-}
-
-form button:hover {
-    background-color: #45a049;               /* Color del botón al pasar el cursor */
-}
-
-/* Mensajes de error */
-form .form-error {
-    color: red;                              /* Color rojo para resaltar el error */
-    font-size: 0.9rem;                       /* Tamaño de texto ligeramente menor */
-    margin-top: 0.25rem;                     /* Espacio arriba del mensaje */
+.my-carousel .carousel-item img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
 }
 
 /*-------------------------------
-  MEDIA QUERIES FORMULARIO
+  FORMULARIO + CONTACTO
 -------------------------------*/
-
-/* Móviles */
-@media (max-width: 480px) {
-    form {
-        grid-template-columns: 1fr;         /* 1 columna para pantallas pequeñas */
-        padding: 1.5rem;                    /* Ajuste de padding en móviles */
-    }
-
-    form button {
-        width: 100%;                         /* Botón ocupa todo el ancho */
-        padding: 0.75rem;                     /* Relleno del botón más compacto */
-    }
+.main-contacto .contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 2rem;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 2rem;
 }
 
-/* Tablets */
-@media (min-width: 481px) and (max-width: 768px) {
-    form {
-        grid-template-columns: 1fr;         /* 1 columna para comodidad */
-        padding: 2rem;                      /* Padding intermedio */
-    }
-
-    form input,
-    form select,
-    form textarea {
-        font-size: 1.05rem;                 /* Texto ligeramente más grande que móvil */
-    }
-
-    form button {
-        padding: 0.75rem 1.25rem;           /* Ajuste del tamaño del botón */
-    }
+.main-contacto form {
+    flex: 1 1 500px;
+    min-width: 300px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
 }
 
-/* Desktop - 2 columnas */
-@media (min-width: 769px) {
-    form {
-        grid-template-columns: 1fr 1fr;     /* Dos columnas para aprovechar espacio */
-        gap: 1.5rem;                        /* Espacio mayor entre columnas y filas */
-    }
+.main-contacto form label {
+    font-weight: 500;
+}
 
-    /* Algunos campos importantes (como textarea o botón) ocupan toda la fila */
-    form textarea,
-    form button,
-    form .checkbox-group,
-    form .radio-group {
-        grid-column: 1 / -1;                /* Ocupa ambas columnas */
-    }
+.main-contacto form input,
+.main-contacto form select,
+.main-contacto form textarea {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
 
-    form input,
-    form select {
-        font-size: 1.1rem;                  /* Aumenta tamaño del texto en desktop */
-    }
+.main-contacto form button {
+    grid-column: 1 / -1;
+    padding: 0.8rem 1.5rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
-    form button {
-        padding: 0.85rem 2rem;              /* Botón más grande */
-        font-size: 1.05rem;                 /* Texto del botón un poco más grande */
-    }
+.main-contacto form button:hover {
+    background-color: #45a049;
+}
+
+.main-contacto img {
+    flex: 1 1 400px;
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
 }
 
 /*-------------------------------
   FOOTER
 -------------------------------*/
 .footer {
-    display: flex;                                           /* Flexbox para contenido */
-    align-items: center;                                    /* Centrado vertical */
-    justify-content: center;                                /* Centrado horizontal */
-    padding: var(--padding-base);                           /* Padding uniforme */
-    background-color: var(--color-bg);                      /* Fondo */
-    border-top: 1px solid rgba(0,0,0,0.15);               /* Línea superior ligera */
+    display: flex;
+    justify-content: center;
+    padding: var(--padding-base);
+    background-color: var(--color-bg);
+    border-top: 1px solid rgba(0,0,0,0.15);
 }
 
-/*-----------------------------
-  MEDIA QUERIES GENERALES
+/*-------------------------------
+  MEDIA QUERIES
 -------------------------------*/
+@media (max-width: 1024px) {
+    .my-carousel .carousel-item img {
+        max-height: 300px;
+    }
+}
+
 @media (max-width: 768px) {
-    .titles h1 { font-size: 2rem; }                         /* Ajusta tamaño título en tablets/móviles */
-    .titles h2 { font-size: 1rem; }                         /* Ajusta subtítulo */
-    .headernav ul { flex-direction: column; gap: 10px; }    /* Menú vertical en móviles */
-    .main { padding: 20px; gap: 2rem; }                     /* Reduce padding y separación */
-    .logo { max-width: 60px; }                              /* Logo más pequeño en móviles */
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text {
+        text-align: center;
+    }
+
+    .titles h1 {
+        font-size: 2rem;
+    }
+
+    .titles h2 {
+        font-size: 1rem;
+    }
+
+    .main-contacto .contact-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-contacto img,
+    .main-contacto form {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .cards-productos .card,
+    .cards-servicios .card {
+        max-width: 90%;
+        margin-bottom: 1.5rem;
+    }
+
+    .cards {
+        gap: 1rem;
+        justify-content: center;
+    }
+
+    .my-carousel .carousel-item img {
+        max-height: 180px;
+    }
+}
+
+@media (min-width: 769px) {
+    .main-contacto form {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .main-contacto form textarea,
+    .main-contacto form button {
+        grid-column: 1 / -1;
+    }
 }
