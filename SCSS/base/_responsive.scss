@@ -1,0 +1,12 @@
+@use "variables" as v;
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+}

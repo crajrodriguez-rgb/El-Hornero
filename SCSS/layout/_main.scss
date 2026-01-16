@@ -1,0 +1,80 @@
+@use "../base/index" as index;
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  padding: 2.5rem 1.5rem;
+
+  &-nosotros {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+
+    h1 {
+      font-size: 3rem;
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+    }
+
+    p {
+      font-size: 1.3rem;
+      color: index.$color-parrafo;
+      line-height: 1.7;
+      max-width: 800px;
+      opacity: 0;
+      animation: fadeInUp 1s 0.5s forwards;
+    }
+
+    img {
+      width: 300px;
+      height: auto;
+      border-radius: 10px;
+      opacity: 0;
+      transition: transform 0.5s ease;
+      animation: fadeInUp 1s 1s forwards;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+
+.hero-img {
+  width: 100%;
+  max-width: 700px;  // ajusta según diseño
+  margin: 0 auto;    // centrado horizontal
+  img {
+    width: 100%;     // ocupa todo el contenedor
+    height: auto;    // mantiene proporción
+    display: block;  // elimina espacios extra debajo de la imagen
+    border-radius: 10px; // opcional, si querés bordes redondeados
+  }
+}
+
+.hero-text {
+  text-align: center;           // centra el texto
+  font-size: 1.8rem;            // aumenta el tamaño de letra
+  margin: 2rem auto;            // separación arriba y abajo
+  line-height: 1.6;             // mejora lectura
+  max-width: 800px;             // limita ancho para legibilidad
+
+  p {
+    margin: 0;                  // quita margen por defecto
+  }
+}

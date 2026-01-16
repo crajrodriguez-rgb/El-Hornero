@@ -1,0 +1,18 @@
+// SCSS/main.scss
+
+// Base
+@use "base/index" as index;   // variables + responsive
+@use "base/reset";            // reset independiente
+
+// Utilities
+@use "utilities/mixins" as mixins;
+
+// Layout
+@use "layout/header";
+@use "layout/main";
+@use "layout/footer";
+
+// Components
+@use "components/cards";
+@use "components/carousel";
+@use "components/form";

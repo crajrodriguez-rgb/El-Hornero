@@ -1,0 +1,244 @@
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-text {
+    text-align: center;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Roboto", sans-serif;
+  background-color: #F5F5DC;
+  line-height: 1.5;
+}
+
+.navbar {
+  background-color: #F5F5DC;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.navbar .navbar-brand {
+  display: flex;
+  align-items: center;
+}
+.navbar .titles {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: brown;
+}
+.navbar .titles h1, .navbar .titles h2 {
+  margin: 0;
+  line-height: 1.1;
+}
+.navbar .nav-link {
+  color: brown;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+.navbar .nav-link:hover {
+  color: darkred;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  padding: 2.5rem 1.5rem;
+}
+.main-nosotros {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+}
+.main-nosotros h1 {
+  font-size: 3rem;
+  opacity: 0;
+  animation: fadeInUp 1s forwards;
+}
+.main-nosotros p {
+  font-size: 1.3rem;
+  color: #6b4a2b;
+  line-height: 1.7;
+  max-width: 800px;
+  opacity: 0;
+  animation: fadeInUp 1s 0.5s forwards;
+}
+.main-nosotros img {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+  opacity: 0;
+  transition: transform 0.5s ease;
+  animation: fadeInUp 1s 1s forwards;
+}
+.main-nosotros img:hover {
+  transform: scale(1.05);
+}
+
+.hero-img {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.hero-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
+
+.hero-text {
+  text-align: center;
+  font-size: 1.8rem;
+  margin: 2rem auto;
+  line-height: 1.6;
+  max-width: 800px;
+}
+.hero-text p {
+  margin: 0;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  background-color: #F5F5DC;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.cards .card {
+  max-width: 200px;
+  padding: 0.8rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.cards .card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+  object-fit: cover;
+}
+.cards .card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+}
+.cards .card p {
+  font-size: 0.9rem;
+}
+.cards-productos .card {
+  max-width: 260px;
+  padding: 1.2rem;
+}
+.cards-productos .card img {
+  height: 200px;
+}
+
+.my-carousel {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+.my-carousel .carousel-item {
+  transition: transform 1.5s ease-in-out;
+}
+.my-carousel .carousel-item img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+.main-contacto .contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 2rem;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 2rem;
+}
+.main-contacto form {
+  flex: 1 1 500px;
+  min-width: 300px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+.main-contacto form label {
+  font-weight: 500;
+}
+.main-contacto form input, .main-contacto form select, .main-contacto form textarea {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.main-contacto form button {
+  grid-column: 1/-1;
+  padding: 0.8rem 1.5rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.main-contacto form button:hover {
+  background-color: #45a049;
+}
+.main-contacto img {
+  flex: 1 1 400px;
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/*# sourceMappingURL=style.css.map */

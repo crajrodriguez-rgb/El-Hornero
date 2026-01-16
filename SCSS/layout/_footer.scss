@@ -1,0 +1,9 @@
+@use "../base/index" as index;
+
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: index.$padding-base;
+  background-color: index.$color-bg;
+  border-top: 1px solid rgba(0,0,0,0.15);
+}
